@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'fab_demo.dart';
 import 'appbar_demo.dart';
 import 'trans_appbar.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           headline1: TextStyle(
               fontSize: 34, color: Colors.white, fontWeight: FontWeight.bold),
           headline2: TextStyle(
-                color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),
+              color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),
         ),
       ),
       home: const AppBarEg(),
