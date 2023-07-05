@@ -1,18 +1,18 @@
 import 'dart:async';
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
-import 'package:splash_screen/main.dart';
-import 'package:splash_screen/styles/text_styles.dart';
+import 'package:country_cafe/main.dart';
+import 'package:country_cafe/styles/text_styles.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
-class Splash_Screen extends StatefulWidget {
+class country_cafe extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return Splash_Screen_Page();
+    return country_cafe_Page();
   }
 }
 
-class Splash_Screen_Page extends State<Splash_Screen> {
+class country_cafe_Page extends State<country_cafe> {
   double _opacity = 0.0;
 
   final colorizeColors = [

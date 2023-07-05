@@ -15,14 +15,14 @@ class Cocktail_Data{
       'favourite':false,
     },
     'Magic Mix':{
-      'path':'assets/images/special/seasonal/cocktail3.jpg',
+      'path':'assets/images/special/cocktails/cocktail3.jpg',
       'like':567,
       'rating':3.3,
       'price':10,
       'favourite':false,
     },
     'Non-Alcoholic':{
-      'path':'assets/images/special/seasonal/cocktail4.jpg',
+      'path':'assets/images/special/cocktails/cocktail4.jpg',
       'like':312,
       'rating':4.5,
       'price':5,

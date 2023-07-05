@@ -1,12 +1,14 @@
+import 'package:country_cafe/sliver_appbar_demo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:splash_screen/splash_screen.dart';
-import 'package:splash_screen/styles/text_styles.dart';
+import 'package:country_cafe/splash_screen.dart';
+import 'package:country_cafe/styles/text_styles.dart';
 import 'package:blur/blur.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'fab_demo.dart';
 import 'appbar_demo.dart';
 import 'trans_appbar.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
               color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),
         ),
       ),
-      home: const AppBarEg(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -42,12 +44,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController _email = TextEditingController();
-  dynamic _isClearEmail = false;
-  dynamic _password = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final dynamic _password = TextEditingController();
   dynamic _isPassVisible = false;
-  dynamic _formKey = GlobalKey<FormState>();
-  Color _color = Colors.transparent;
+  final dynamic _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {

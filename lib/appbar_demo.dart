@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -6,8 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:focused_menu/modals.dart';
-import 'package:splash_screen/splash_screen.dart';
-import 'package:splash_screen/trans_appbar.dart';
+import 'package:country_cafe/splash_screen.dart';
+import 'package:country_cafe/trans_appbar.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:floating_action_bubble/floating_action_bubble.dart';
 import 'data/ForYou_data.dart';
@@ -16,6 +17,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:focused_menu/focused_menu.dart';
 import 'data/Seasonal_Data.dart';
+import 'data/slider_data.dart';
 
 class AppBarEg extends StatefulWidget {
   const AppBarEg({super.key});
@@ -42,22 +44,22 @@ class _AppBarEgState extends State<AppBarEg> {
             headerSliverBuilder: (context, innerBoxIsScrolled) {
               return [
                 SliverAppBar(
-                  title: Text('Country Cafe`'),
+                  title: const Text('Country Cafe`'),
                   actions: [
                     IconButton(
                         onPressed: () {},
                         icon: badges.Badge(
-                            badgeContent: Text(
+                            badgeContent: const Text(
                               '7',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),
-                            child: Icon(Icons.notifications),
+                            child: const Icon(Icons.notifications),
                             badgeStyle: badges.BadgeStyle(
                               badgeColor: Colors.brown.shade200,
                               elevation: 3,
-                              padding: EdgeInsets.all(5),
+                              padding: const EdgeInsets.all(5),
                               // borderRadius: BorderRadius.circular(4),
                               // borderSide: BorderSide(color: Colors.white, width: 2),
                               // borderGradient: badges.BadgeGradient.linear(
@@ -74,7 +76,7 @@ class _AppBarEgState extends State<AppBarEg> {
                               context: context,
                               delegate: MyCustomSearchDelegate());
                         },
-                        icon: Icon(Icons.search)),
+                        icon: const Icon(Icons.search)),
                   ],
                   flexibleSpace: Container(
                     decoration: BoxDecoration(
@@ -87,7 +89,7 @@ class _AppBarEgState extends State<AppBarEg> {
                       ],
                     )),
                   ),
-                  bottom: TabBar(
+                  bottom: const TabBar(
                     tabs: [
                       Tab(
                         icon: Icon(Icons.home),
@@ -108,6 +110,10 @@ class _AppBarEgState extends State<AppBarEg> {
                     ],
                     indicatorColor: Colors.white,
                     indicatorWeight: 3,
+                    isScrollable: true,
+                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                    unselectedLabelStyle:
+                        TextStyle(fontWeight: FontWeight.normal),
                   ),
                   // pinned: true,
                   elevation: 10,
@@ -145,29 +151,29 @@ class MyAppbar extends StatefulWidget implements PreferredSizeWidget {
   @override
   // TODO: implement preferredSize
   Size get preferredSize =>
-      Size.fromHeight(kToolbarHeight + kTextTabBarHeight + 20);
+      const Size.fromHeight(kToolbarHeight + kTextTabBarHeight + 20);
 }
 
 class _MyAppbarState extends State<MyAppbar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text('Country Cafe`'),
+      title: const Text('Country Cafe`'),
       //centerTitle: true,
       actions: [
         IconButton(
             onPressed: () {},
             icon: badges.Badge(
-                badgeContent: Text(
+                badgeContent: const Text(
                   '7',
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 ),
-                child: Icon(Icons.notifications),
+                child: const Icon(Icons.notifications),
                 badgeStyle: badges.BadgeStyle(
                   badgeColor: Colors.brown.shade200,
                   elevation: 3,
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   // borderRadius: BorderRadius.circular(4),
                   // borderSide: BorderSide(color: Colors.white, width: 2),
                   // borderGradient: badges.BadgeGradient.linear(
@@ -182,7 +188,7 @@ class _MyAppbarState extends State<MyAppbar> {
             onPressed: () {
               showSearch(context: context, delegate: MyCustomSearchDelegate());
             },
-            icon: Icon(Icons.search)),
+            icon: const Icon(Icons.search)),
       ],
       //backgroundColor: Colors.redAccent,
       elevation: 10,
@@ -198,7 +204,7 @@ class _MyAppbarState extends State<MyAppbar> {
           ],
         )),
       ),
-      bottom: TabBar(
+      bottom: const TabBar(
         tabs: [
           Tab(
             icon: Icon(Icons.home),
@@ -231,7 +237,8 @@ class _MyAppbarState extends State<MyAppbar> {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(kToolbarHeight + kTextTabBarHeight);
+  Size get preferredSize =>
+      const Size.fromHeight(kToolbarHeight + kTextTabBarHeight);
 }
 
 class DemoPage extends StatelessWidget {
@@ -246,7 +253,7 @@ class DemoPage extends StatelessWidget {
     return Center(
       child: Text(
         data!,
-        style: TextStyle(
+        style: const TextStyle(
             fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
       ),
     );
@@ -282,12 +289,12 @@ class NavigationDrawer extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               child: Icon(Icons.person),
               radius: 30,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text(
                 'Tejas Pokale',
                 style: TextStyle(
@@ -296,8 +303,8 @@ class NavigationDrawer extends StatelessWidget {
                     color: Colors.black),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
+            const Padding(
+              padding: EdgeInsets.all(4.0),
               child: Text(
                 'tejaspokale9204@gmail.com',
                 style: TextStyle(
@@ -314,42 +321,42 @@ class NavigationDrawer extends StatelessWidget {
 
   Widget buildMenuItems() {
     return Container(
-      padding: EdgeInsets.all(24),
+      padding: const EdgeInsets.all(24),
       child: Wrap(
         runSpacing: 16,
         children: [
           ListTile(
-            leading: Icon(Icons.home_outlined),
-            title: Text('Home'),
+            leading: const Icon(Icons.home_outlined),
+            title: const Text('Home'),
             onTap: () {
               Navigator.of(context!).push(MaterialPageRoute(
-                builder: (context) => TransApp(),
+                builder: (context) => const TransApp(),
               ));
             },
           ),
           ListTile(
-            leading: Icon(Icons.favorite_border_outlined),
-            title: Text('Favorites'),
+            leading: const Icon(Icons.favorite_border_outlined),
+            title: const Text('Favorites'),
             onTap: () {
               Navigator.of(context!).pop();
             },
           ),
           ListTile(
-            leading: Icon(Icons.archive_outlined),
-            title: Text('Achieves'),
+            leading: const Icon(Icons.archive_outlined),
+            title: const Text('Achieves'),
             onTap: () {},
           ),
-          Divider(
+          const Divider(
             color: Colors.black,
           ),
           ListTile(
-            leading: Icon(Icons.update),
-            title: Text('Updates'),
+            leading: const Icon(Icons.update),
+            title: const Text('Updates'),
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.notifications_none),
-            title: Text('Notifications'),
+            leading: const Icon(Icons.notifications_none),
+            title: const Text('Notifications'),
             onTap: () {},
           ),
         ],
@@ -381,7 +388,7 @@ class MyCustomSearchDelegate extends SearchDelegate {
               query = '';
             }
           },
-          icon: Icon(Icons.close))
+          icon: const Icon(Icons.close))
     ];
   }
 
@@ -391,7 +398,7 @@ class MyCustomSearchDelegate extends SearchDelegate {
         onPressed: () {
           close(context, null);
         },
-        icon: Icon(Icons.arrow_back_ios));
+        icon: const Icon(Icons.arrow_back_ios));
   }
 
   @override
@@ -444,7 +451,7 @@ class _MyBottomNavState extends State<MyBottomNav> {
 
   final _body = [
     MyForYou(),
-    MySpecialOnce(),
+    const MySpecialOnce(),
   ];
 
   @override
@@ -463,11 +470,11 @@ class _MyBottomNavState extends State<MyBottomNav> {
           currentIndex: _currentIndex,
           elevation: 50,
           items: [
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.recommend),
               label: 'For You',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.tag_faces_outlined),
               label: 'Special ones',
             ),
@@ -484,7 +491,7 @@ class MyForYou extends StatefulWidget {
 class _MyForYouState extends State<MyForYou>
     with SingleTickerProviderStateMixin {
   //variables
-  var _isVisible = true;
+  final _isVisible = true;
 
   @override
   void initState() {
@@ -532,7 +539,7 @@ class _MyFABState extends State<MyFAB> with SingleTickerProviderStateMixin {
   void initState() {
     _animationController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 260),
+      duration: const Duration(milliseconds: 260),
     );
 
     final curvedAnimation =
@@ -556,7 +563,7 @@ class _MyFABState extends State<MyFAB> with SingleTickerProviderStateMixin {
               iconColor: Colors.brown,
               bubbleColor: Colors.brown.shade100,
               icon: Icons.add,
-              titleStyle: TextStyle(fontSize: 16, color: Colors.white),
+              titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
               onPress: () {
                 reverseAnimation();
               },
@@ -567,7 +574,7 @@ class _MyFABState extends State<MyFAB> with SingleTickerProviderStateMixin {
               iconColor: Colors.brown,
               bubbleColor: Colors.brown.shade100,
               icon: Icons.add,
-              titleStyle: TextStyle(fontSize: 16, color: Colors.white),
+              titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
               onPress: () {
                 reverseAnimation();
               },
@@ -578,7 +585,7 @@ class _MyFABState extends State<MyFAB> with SingleTickerProviderStateMixin {
               iconColor: Colors.brown,
               bubbleColor: Colors.brown.shade100,
               icon: Icons.add,
-              titleStyle: TextStyle(fontSize: 16, color: Colors.white),
+              titleStyle: const TextStyle(fontSize: 16, color: Colors.white),
               onPress: () {
                 reverseAnimation();
               },
@@ -632,7 +639,7 @@ class MyBehaviour extends ScrollBehavior {
 }
 
 class MyForYouRecentItems extends StatelessWidget {
-  var _data = ForYou_data.data;
+  final _data = ForYou_data.data;
 
   @override
   Widget build(BuildContext context) {
@@ -646,8 +653,8 @@ class MyForYouRecentItems extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 5.0),
+          const Padding(
+            padding: EdgeInsets.only(left: 5.0),
             child: Text(
               'Recent Search',
               style: TextStyle(
@@ -659,11 +666,11 @@ class MyForYouRecentItems extends StatelessWidget {
           Container(
             height: size.height * 0.2,
             child: ListView.builder(
-              padding: EdgeInsets.only(left: 5),
+              padding: const EdgeInsets.only(left: 5),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Container(
-                  margin: EdgeInsets.all(10.0).copyWith(left: 0),
+                  margin: const EdgeInsets.all(10.0).copyWith(left: 0),
                   height: size.height * 0.2,
                   width: size.width * 0.6,
                   decoration: BoxDecoration(boxShadow: [
@@ -672,7 +679,7 @@ class MyForYouRecentItems extends StatelessWidget {
                       color: Colors.brown.shade400,
                       spreadRadius: 2,
                     )
-                  ], borderRadius: BorderRadius.all(Radius.circular(15))),
+                  ], borderRadius: const BorderRadius.all(Radius.circular(15))),
                   child: Container(
                     height: size.height * 0.2,
                     width: size.width * 0.6,
@@ -698,17 +705,17 @@ class MyForYouRecentItems extends StatelessWidget {
                           bottom: 0,
                           child: Container(
                             // width: double.infinity,
-                            padding: EdgeInsets.all(5.0),
+                            padding: const EdgeInsets.all(5.0),
 
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   topRight: Radius.circular(10.0)),
                               color: Colors.white.withOpacity(0.7),
                             ),
                             child: Center(
                               child: Text(
                                 recentKeys[index],
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
@@ -750,7 +757,7 @@ class MyForYouMostOrderedItems extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 5),
             child: Text(
               'Previously ordered',
@@ -764,7 +771,7 @@ class MyForYouMostOrderedItems extends StatelessWidget {
             height: size.height * 0.24,
             width: size.width,
             child: ListView.builder(
-              padding: EdgeInsets.only(left: 5),
+              padding: const EdgeInsets.only(left: 5),
               itemBuilder: (context, index) {
                 return Container(
                   height: size.height * 0.24,
@@ -864,7 +871,7 @@ class MyForYouMostOrderedItems extends StatelessWidget {
                                   label: Text(
                                     mostOrder[orderKeys[index]]['likes']
                                         .toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         overflow: TextOverflow.ellipsis),
                                   )),
                             ),
@@ -922,7 +929,7 @@ class MyForYouItems extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.only(left: 5),
+            padding: const EdgeInsets.only(left: 5),
             child: Text(
               'From near restraunts',
               style: Theme.of(context).textTheme.headline2,
@@ -932,10 +939,10 @@ class MyForYouItems extends StatelessWidget {
             width: size.width * 0.95,
             // height: size.height,
             child: ListView.builder(
-              padding: EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 10),
               shrinkWrap: true,
               primary: false,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 var _pageController = PageController();
                 return Container(
@@ -963,7 +970,7 @@ class MyForYouItems extends StatelessWidget {
                               maxLines: 2,
                               text: TextSpan(
                                 text: '${recKeys[index]}\n',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.black87,
                                   fontWeight: FontWeight.w700,
                                   fontSize: 18,
@@ -972,7 +979,7 @@ class MyForYouItems extends StatelessWidget {
                                   TextSpan(
                                     text:
                                         'from, ${recData[recKeys[index]]['res_name']}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.grey,
                                       fontWeight: FontWeight.normal,
                                       fontSize: 15,
@@ -987,43 +994,45 @@ class MyForYouItems extends StatelessWidget {
                             child: FocusedMenuHolder(
                               blurSize: 5.0,
                               menuItemExtent: 45,
-                              menuBoxDecoration: BoxDecoration(
+                              menuBoxDecoration: const BoxDecoration(
                                   color: Colors.grey,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15.0))),
-                              duration: Duration(milliseconds: 100),
+                              duration: const Duration(milliseconds: 100),
                               animateMenuItems: true,
                               blurBackgroundColor: Colors.black54,
                               bottomOffsetHeight: 100,
                               openWithTap: true,
                               menuItems: <FocusedMenuItem>[
                                 FocusedMenuItem(
-                                    title: Text("Share"),
-                                    trailingIcon: Icon(Icons.share),
+                                    title: const Text("Share"),
+                                    trailingIcon: const Icon(Icons.share),
                                     onPressed: () {}),
                                 FocusedMenuItem(
-                                    title: Text("Favorite"),
-                                    trailingIcon: Icon(Icons.favorite_border),
+                                    title: const Text("Favorite"),
+                                    trailingIcon:
+                                        const Icon(Icons.favorite_border),
                                     onPressed: () {}),
                                 FocusedMenuItem(
-                                    title: Text("Don't recomment this"),
-                                    trailingIcon: Icon(Icons.do_not_disturb),
+                                    title: const Text("Don't recomment this"),
+                                    trailingIcon:
+                                        const Icon(Icons.do_not_disturb),
                                     onPressed: () {
                                       // Navigator.push(context, MaterialPageRoute(builder: (context)=>ScreenTwo()));
                                     }),
                                 FocusedMenuItem(
-                                    title: Text(
+                                    title: const Text(
                                       "Report",
                                       style: TextStyle(color: Colors.redAccent),
                                     ),
-                                    trailingIcon: Icon(
+                                    trailingIcon: const Icon(
                                       Icons.do_not_disturb,
                                       color: Colors.redAccent,
                                     ),
                                     onPressed: () {}),
                               ],
                               onPressed: () {},
-                              child: Icon(
+                              child: const Icon(
                                 // onPressed: () {},
                                 // icon: Icon(
                                 Icons.more_vert,
@@ -1035,7 +1044,7 @@ class MyForYouItems extends StatelessWidget {
                       ),
                       Container(
                         height: size.height * 0.25,
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 10.0),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15.0),
@@ -1069,7 +1078,7 @@ class MyForYouItems extends StatelessWidget {
                               count: 4,
                               // forcing the indicator to use a specific direction
                               textDirection: TextDirection.ltr,
-                              effect: WormEffect(
+                              effect: const WormEffect(
                                 dotHeight: 8,
                                 dotWidth: 8,
                                 activeDotColor: Colors.red,
@@ -1092,7 +1101,7 @@ class MyForYouItems extends StatelessWidget {
                                       color: Colors.blue),
                                   label: Text(
                                     recData[recKeys[index]]['likes'].toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         overflow: TextOverflow.ellipsis),
                                   )),
                             ),
@@ -1120,11 +1129,11 @@ class MyForYouItems extends StatelessWidget {
                               flex: 3,
                               child: TextButton.icon(
                                   onPressed: () {},
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.card_giftcard,
                                     color: Colors.green,
                                   ),
-                                  label: Text(
+                                  label: const Text(
                                     'buy now',
                                     style: TextStyle(
                                         decoration: TextDecoration.underline),
@@ -1168,8 +1177,35 @@ class _MySpecialOnceState extends State<MySpecialOnce> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              MySlider(),
-              MySeasonalDrinks(),
+              const MySlider(),
+              // ignore: deprecated_member_use
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 2, 0, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Seasonal drinks',
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
+                    Directionality(
+                      textDirection: TextDirection.rtl,
+                      child: TextButton.icon(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.brown,
+                        ),
+                        label: Text(
+                          "...more",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const MySeasonalDrinks(),
             ],
           ),
         ),
@@ -1199,14 +1235,14 @@ class _MySeasonalDrinksState extends State<MySeasonalDrinks> {
       child: GridView.custom(
         shrinkWrap: true,
         primary: false,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisExtent: size.height * 0.30,
           mainAxisSpacing: 10,
           crossAxisSpacing: 10,
         ),
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         childrenDelegate: SliverChildBuilderDelegate(
           (context, index) {
             return Container(
@@ -1251,7 +1287,7 @@ class _MySeasonalDrinksState extends State<MySeasonalDrinks> {
                             // width: size.width * 0.28,
                             decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.80),
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   topRight: Radius.circular(10)),
                             ),
                             child: Padding(
@@ -1260,7 +1296,7 @@ class _MySeasonalDrinksState extends State<MySeasonalDrinks> {
                               child: Center(
                                 child: Text(
                                   keys[index],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w700,
                                       overflow: TextOverflow.ellipsis),
@@ -1281,7 +1317,7 @@ class _MySeasonalDrinksState extends State<MySeasonalDrinks> {
                           flex: 1,
                           child: TextButton.icon(
                               onPressed: () {},
-                              icon: Icon(Icons.thumb_up),
+                              icon: const Icon(Icons.thumb_up),
                               label:
                                   Text(data[keys[index]]['like'].toString())),
                         ),
@@ -1289,13 +1325,13 @@ class _MySeasonalDrinksState extends State<MySeasonalDrinks> {
                           flex: 1,
                           child: TextButton.icon(
                               onPressed: () {},
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.attach_money,
                                 color: Colors.green,
                               ),
                               label: Text(
                                 data[keys[index]]['price'].toString(),
-                                style: TextStyle(color: Colors.green),
+                                style: const TextStyle(color: Colors.green),
                               )),
                         ),
                       ],
@@ -1304,11 +1340,11 @@ class _MySeasonalDrinksState extends State<MySeasonalDrinks> {
                   Center(
                     child: TextButton.icon(
                         onPressed: () {},
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.shopping_bag_outlined,
                           color: Colors.orange,
                         ),
-                        label: Text('order now',
+                        label: const Text('order now',
                             style: TextStyle(
                                 color: Colors.black,
                                 decoration: TextDecoration.underline))),
@@ -1332,8 +1368,146 @@ class MySlider extends StatefulWidget {
 }
 
 class _MySliderState extends State<MySlider> {
+  final _data = SliderData.data;
+  late List _keys = [];
+  final _pageController = PageController(initialPage: 0);
+  int _index = 0;
+  bool _scroll = true;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _keys = _data.keys.toList();
+
+    Timer.periodic(Duration(seconds: 2), (timer) {
+      if (_scroll) {
+        print('Im called ${_index}');
+        _pageController.animateToPage(_index,
+            duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+
+        _index == (_keys.length - 1) ? _index = 0 : _index++;
+      }
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final size = MediaQuery.of(context).size;
+    return GestureDetector(
+      onTap: () {
+        _scroll = false;
+      },
+      child: Container(
+          height: size.height * 0.25,
+          width: size.width,
+          margin: const EdgeInsets.fromLTRB(5, 5, 5, 0),
+          decoration: BoxDecoration(
+            color: Colors.brown.withOpacity(0.234),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: Stack(
+            children: [
+              PageView.builder(
+                onPageChanged: (value) {
+                  _index = value;
+                  _scroll = true;
+                },
+                itemBuilder: (context, index) {
+                  return Stack(
+                    children: [
+                      Image.asset(
+                        _data[_keys[index]]!['image']!,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: double.infinity,
+                      ),
+                      Positioned(
+                        child: Text(
+                          _keys[index],
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black,
+                                  blurRadius: 5,
+                                ),
+                              ]),
+                        ),
+                        left: 5,
+                        top: 2,
+                      ),
+                      Positioned(
+                        child: Container(
+                          width: size.width * 0.5,
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.145),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                _data[_keys[index]]!['title']!,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    shadows: [
+                                      Shadow(
+                                        color: Colors.black,
+                                        blurRadius: 5,
+                                      ),
+                                    ]),
+                              ),
+                              Text(
+                                _data[_keys[index]]!['desc']!,
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13,
+                                    shadows: [
+                                      Shadow(
+                                        color: Colors.black,
+                                        blurRadius: 5,
+                                      ),
+                                    ]),
+                              ),
+                            ],
+                          ),
+                        ),
+                        right: 5,
+                        bottom: 10,
+                      ),
+                    ],
+                  );
+                },
+                controller: _pageController,
+                itemCount: _keys.length,
+              ),
+              Positioned(
+                child: SmoothPageIndicator(
+                  controller: _pageController, // PageController
+                  count: _keys.length,
+                  // forcing the indicator to use a specific direction
+                  textDirection: TextDirection.ltr,
+                  effect: const WormEffect(
+                    dotHeight: 8,
+                    dotWidth: 8,
+                    spacing: 5,
+                    activeDotColor: Colors.red,
+                  ),
+                ),
+                left: 30,
+                bottom: 30,
+              ),
+            ],
+          )),
+    );
   }
 }
